@@ -18,10 +18,6 @@ export default function Home({ databaseContents }) {
       </Head>
 
       <main>
-        <Header title="Welcome!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
         {databaseContents.results.map((workshop, index) => (
           <Workshop key={index} workshop={workshop} />
         ))}
@@ -33,7 +29,9 @@ export default function Home({ databaseContents }) {
 }
 
 export async function getServerSideProps() {
-  const databaseContents = await notion.databases.query({ database_id: databaseId });
+  const databaseContents = await notion.databases.query({
+    database_id: databaseId,
+  });
   return {
     props: {
       databaseContents,
