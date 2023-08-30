@@ -5,13 +5,17 @@ import Workshop from '@components/Workshop';
 require('dotenv').config();
 const { Client } = require('@notionhq/client');
 
-const notion = new Client({ auth: process.env.NOTION_KEY });
-const databaseId = process.env.NOTION_DATABASE_ID;
+const notion = new Client({
+  auth: process.env.NEXT_PUBLIC_NOTION_KEY,
+});
+const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
 
 import { useState, useEffect } from 'react';
 
 export default function Home({ databaseContents }) {
-  const [workshops, setWorkshops] = useState(databaseContents.results);
+  const [workshops, setWorkshops] = useState(
+    databaseContents.results
+  );
 
   useEffect(() => {
     const interval = setInterval(async () => {
