@@ -20,12 +20,13 @@
 }
 
 .leftColumn h2 {
-  font-size: 5rem;
+  font-size: 3vw;
+  margin: 0;
 }
 
 .leftColumn p {
   font-size: 2rem;
-  min-font-size: 1vw;
+  margin: 0.5rem;
 }
 
 .rightColumn {
