@@ -37,7 +37,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-setTimeout(function () {
-  window.location.reload();
-}, 5000);
