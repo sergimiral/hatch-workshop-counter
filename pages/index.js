@@ -28,7 +28,7 @@ export default function Home({ databaseContents }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const databaseContents = await notion.databases.query({
     database_id: databaseId,
   });
@@ -36,6 +36,5 @@ export async function getStaticProps() {
     props: {
       databaseContents,
     },
-    revalidate: 60, // Re-generate the page every 60 seconds
   };
 }
