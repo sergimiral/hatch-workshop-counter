@@ -12,14 +12,9 @@ export default function Home() {
 
   useEffect(() => {
     const fetchWorkshops = async () => {
-      const notion = new Client({
-        auth: process.env.NEXT_PUBLIC_NOTION_KEY,
-      });
-      const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
-      const response = await notion.databases.query({
-        database_id: databaseId,
-      });
-      setWorkshops(response.results);
+      const response = await fetch('/api/workshops');
+      const data = await response.json();
+      setWorkshops(data);
     };
 
     fetchWorkshops();
