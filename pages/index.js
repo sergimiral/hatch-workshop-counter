@@ -7,8 +7,8 @@ const { Client } = require('@notionhq/client');
 const notion = new Client({ auth: process.env.NOTION_KEY });
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-export default function Home() {
-  console.log(notion.databases.list);
+export default function Home({ databaseContents }) {
+  console.log(databaseContents);
   return (
     <div className="container">
       <Head>
@@ -26,4 +26,13 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const databaseContents = await notion.databases.query({ database_id: databaseId });
+  return {
+    props: {
+      databaseContents,
+    },
+  };
 }
