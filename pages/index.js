@@ -5,28 +5,39 @@ import Workshop from '@components/Workshop';
 require('dotenv').config();
 const { Client } = require('@notionhq/client');
 
-const notion = new Client({
-  auth: process.env.NEXT_PUBLIC_NOTION_KEY,
-});
-const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
+export default function Home({ workshops }) {
+  return (
+    <div className="container">
+      <Head>
+        <title>Next.js Starter!</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-import { useState, useEffect } from 'react';
+      <main>
+        {workshops.map((workshop, index) => (
+          <Workshop key={index} workshop={workshop} />
+        ))}
+      </main>
 
-export default function Home({ databaseContents }) {
-  const [workshops, setWorkshops] = useState(
-    databaseContents.results
+      {/* <Footer /> */}
+    </div>
   );
+}
 
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const updatedDatabaseContents = await notion.databases.query({
-        database_id: databaseId,
-      });
-      setWorkshops(updatedDatabaseContents.results);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
+export async function getServerSideProps() {
+  const notion = new Client({
+    auth: process.env.NEXT_PUBLIC_NOTION_KEY,
+  });
+  const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
+  const workshops = await notion.databases.query({
+    database_id: databaseId,
+  });
+  return {
+    props: {
+      workshops: workshops.results,
+    },
+  };
+}
 
   return (
     <div className="container">
