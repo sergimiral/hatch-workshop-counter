@@ -8,22 +8,8 @@ const { Client } = require('@notionhq/client');
 const notion = new Client({ auth: process.env.NOTION_KEY });
 const databaseId = process.env.NOTION_DATABASE_ID;
 
-import { useState, useEffect } from 'react';
-
 export default function Home({ databaseContents }) {
-  const [workshops, setWorkshops] = useState(databaseContents.results);
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const updatedDatabaseContents = await notion.databases.query({
-        database_id: databaseId,
-      });
-      setWorkshops(updatedDatabaseContents.results);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
+  console.log(databaseContents);
   return (
     <div className="container">
       <Head>
@@ -32,7 +18,7 @@ export default function Home({ databaseContents }) {
       </Head>
 
       <main>
-        {workshops.map((workshop, index) => (
+        {databaseContents.results.map((workshop, index) => (
           <Workshop key={index} workshop={workshop} />
         ))}
       </main>
