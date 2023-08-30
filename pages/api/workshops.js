@@ -12,8 +12,7 @@ export default async function handler(req, res) {
 
     // Ensure that response.results is an array before returning it
     if (Array.isArray(response.results)) {
-      const filteredResults = response.results.filter(workshop => workshop.properties.Name && workshop.properties.Name.title[0].text);
-      res.status(200).json(filteredResults);
+      res.status(200).json(response.results);
     } else {
       console.error('Notion API returned unexpected data:', response.results);
       res.status(200).json([]); // Return an empty array
