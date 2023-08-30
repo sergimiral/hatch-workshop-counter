@@ -10,6 +10,12 @@
   border-radius: 2vw;
 }
 
+@media (max-width: 768px) {
+  .workshop {
+    flex-direction: column;
+  }
+}
+
 .leftColumn {
   flex: 1;
   display: flex;
