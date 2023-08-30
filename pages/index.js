@@ -56,14 +56,3 @@ export async function getServerSideProps() {
     </div>
   );
 }
-
-export async function getServerSideProps() {
-  const databaseContents = await notion.databases.query({
-    database_id: databaseId,
-  });
-  return {
-    props: {
-      databaseContents,
-    },
-  };
-}
