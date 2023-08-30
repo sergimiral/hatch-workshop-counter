@@ -6,9 +6,9 @@ const ProgressBar = ({ current, max }) => {
 
   const getSegmentColor = (isActive) => {
     if (!isActive) return '';
-    if (current === max) return styles.green;
-    if (current >= max / 2) return styles.yellow;
-    return styles.red;
+    if (current <= max / 5) return styles.green;
+    if (current > max / 5 && current <= max * 3 / 5) return styles.yellow;
+    if (current > max * 3 / 5) return styles.red;
   };
 
   return (
