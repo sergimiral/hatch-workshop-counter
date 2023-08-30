@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import Workshop from '@components/Workshop';
 require('dotenv').config();
 const { Client } = require('@notionhq/client');
 
@@ -21,6 +22,9 @@ export default function Home({ databaseContents }) {
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
+        {databaseContents.results.map((workshop, index) => (
+          <Workshop key={index} workshop={workshop} />
+        ))}
       </main>
 
       <Footer />
