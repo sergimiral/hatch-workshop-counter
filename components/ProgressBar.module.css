@@ -11,6 +11,14 @@
   margin: 0 2px;
 }
 
-.active {
+.green {
   background-color: #4caf50;
+}
+
+.yellow {
+  background-color: #ffeb3b;
+}
+
+.red {
+  background-color: #f44336;
 }
