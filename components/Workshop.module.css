@@ -14,6 +14,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-transform: uppercase;
+  font-weight: lighter;
 }
 
 .rightColumn {
@@ -21,4 +23,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-transform: uppercase;
+  font-weight: lighter;
 }
