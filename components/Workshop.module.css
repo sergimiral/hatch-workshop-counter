@@ -24,7 +24,8 @@
 }
 
 .leftColumn p {
-  font-size: 1vw;
+  font-size: 1.2vw;
+  min-font-size: 12px;
 }
 
 .rightColumn {
