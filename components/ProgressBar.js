@@ -2,14 +2,16 @@ import React from 'react';
 import styles from './ProgressBar.module.css';
 
 const ProgressBar = ({ current, max }) => {
-  const percentage = (current / max) * 100;
+  const segments = Array.from({ length: 5 }, (_, i) => i < current);
 
   return (
     <div className={styles.progressBar}>
-      <div
-        className={styles.progress}
-        style={{ width: `${percentage}%` }}
-      />
+      {segments.map((isActive, i) => (
+        <div
+          key={i}
+          className={`${styles.segment} ${isActive ? styles.active : ''}`}
+        />
+      ))}
     </div>
   );
 };
