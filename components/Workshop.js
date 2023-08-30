@@ -13,9 +13,13 @@ const Workshop = ({ workshop }) => {
 
   return (
     <div className={styles.workshop}>
-      <h2>{Name.title[0].text.content}</h2>
-      <ProgressBar current={Current.number} max={Max.number} />
-      <p>{getProgressBarLabel()}</p>
+      <div className={styles.leftColumn}>
+        <h2>{Name.title[0].text.content}</h2>
+        <p>{getProgressBarLabel()}</p>
+      </div>
+      <div className={styles.rightColumn}>
+        <ProgressBar current={Current.number} max={Max.number} />
+      </div>
     </div>
   );
 };

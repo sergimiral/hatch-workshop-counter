@@ -8,19 +8,19 @@
   flex: 1;
   width: 20%;
   height: 0;
-  padding-bottom: 20%;
-  background-color: #f3f3f3;
-  margin: 0 1px;
+  padding-bottom: 19.5%;
+  background-color: #414141;
+  margin: 0.5%;
 }
 
 .green {
-  background-color: #4caf50;
+  background-color: #2DFF34;
 }
 
 .yellow {
-  background-color: #ffeb3b;
+  background-color: #CAFF2F;
 }
 
 .red {
-  background-color: #f44336;
+  background-color: #FF5953;
 }
