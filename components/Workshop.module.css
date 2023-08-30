@@ -20,12 +20,12 @@
 }
 
 .leftColumn h2 {
-  font-size: 3vw;
+  font-size: 5rem;
 }
 
 .leftColumn p {
-  font-size: 1.2vw;
-  min-font-size: 12px;
+  font-size: 2rem;
+  min-font-size: 1vw;
 }
 
 .rightColumn {
