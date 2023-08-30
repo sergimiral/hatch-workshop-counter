@@ -38,21 +38,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        {workshops.map((workshop, index) => (
-          <Workshop key={index} workshop={workshop} />
-        ))}
-      </main>
-
-      {/* <Footer /> */}
-    </div>
-  );
-}
