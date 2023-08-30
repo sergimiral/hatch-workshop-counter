@@ -10,12 +10,6 @@
   border-radius: 2vw;
 }
 
-@media (max-width: 1024px) {
-  .workshop {
-    flex-direction: column;
-  }
-}
-
 .leftColumn {
   flex: 1;
   display: flex;
@@ -27,12 +21,12 @@
 }
 
 .leftColumn h2 {
-  font-size: 4rem;
+  font-size: 3vw;
   margin: 0;
 }
 
 .leftColumn p {
-  font-size: 1.5rem;
+  font-size: 1.5vw;
 }
 
 .rightColumn {
@@ -42,4 +36,17 @@
   justify-content: center;
   text-transform: uppercase;
   font-weight: lighter;
+}
+
+@media (max-width: 1024px) {
+  .workshop {
+    flex-direction: column;
+  }
+  .leftColumn h2 {
+    font-size: 8vw;
+  }
+
+  .leftColumn p {
+    font-size: 3vw;
+  }
 }
