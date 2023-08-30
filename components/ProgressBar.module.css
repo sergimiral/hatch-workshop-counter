@@ -11,14 +11,18 @@
   margin: 0 2px;
 }
 
-.green {
+.filled {
+  background-color: white;
+}
+
+.progressBar.green {
   background-color: #4caf50;
 }
 
-.yellow {
+.progressBar.yellow {
   background-color: #ffeb3b;
 }
 
-.red {
+.progressBar.red {
   background-color: #f44336;
 }
