@@ -10,7 +10,7 @@
   border-radius: 2vw;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .workshop {
     flex-direction: column;
   }
@@ -23,16 +23,16 @@
   justify-content: center;
   text-transform: uppercase;
   font-weight: lighter;
+  margin-right: 5%;
 }
 
 .leftColumn h2 {
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin: 0;
 }
 
 .leftColumn p {
   font-size: 1.5rem;
-  margin: 0.5rem;
 }
 
 .rightColumn {
