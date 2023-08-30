@@ -22,6 +22,10 @@
   font-size: 3vw;
 }
 
+.leftColumn p {
+  font-size: 1vw;
+}
+
 .rightColumn {
   flex: 1;
   display: flex;
