@@ -5,9 +5,20 @@ export default async function handler(req, res) {
     auth: process.env.NEXT_PUBLIC_NOTION_KEY,
   });
   const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
-  const response = await notion.databases.query({
-    database_id: databaseId,
-  });
+  try {
+    const response = await notion.databases.query({
+      database_id: databaseId,
+    });
 
-  res.status(200).json(response.results);
+    // Ensure that response.results is an array before returning it
+    if (Array.isArray(response.results)) {
+      res.status(200).json(response.results);
+    } else {
+      console.error('Notion API returned unexpected data:', response.results);
+      res.status(200).json([]); // Return an empty array
+    }
+  } catch (error) {
+    console.error('Failed to query Notion API:', error);
+    res.status(200).json([]); // Return an empty array
+  }
 }

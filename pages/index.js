@@ -12,9 +12,17 @@ export default function Home() {
 
   useEffect(() => {
     const fetchWorkshops = async () => {
-      const response = await fetch('/api/workshops');
-      const data = await response.json();
-      setWorkshops(data);
+      try {
+        const response = await fetch('/api/workshops');
+        if (!response.ok) {
+          console.error('Failed to fetch workshops:', response.statusText);
+          return;
+        }
+        const data = await response.json();
+        setWorkshops(data);
+      } catch (error) {
+        console.error('Failed to fetch workshops:', error);
+      }
     };
 
     fetchWorkshops();
