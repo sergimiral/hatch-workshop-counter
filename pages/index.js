@@ -23,7 +23,7 @@ export default function Home({ databaseContents }) {
         ))}
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
