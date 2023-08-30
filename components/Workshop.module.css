@@ -18,6 +18,10 @@
   font-weight: lighter;
 }
 
+.leftColumn h2 {
+  font-size: 3vw;
+}
+
 .rightColumn {
   flex: 1;
   display: flex;
